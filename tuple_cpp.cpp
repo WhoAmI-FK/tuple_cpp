@@ -3,6 +3,8 @@
 #include <string>
 #include <iostream>
 
+using namespace __whoAmIFk_tuple;
+
 int main()
 {
 	tuple t3{ 1, 2.0, std::string("hello"),std::string("world") };

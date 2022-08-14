@@ -27,10 +27,24 @@ namespace __whoAmIFk_tuple {
 		val_type _val;
 	};
 
+
+	template<std::size_t index, typename... types>
+	class _tuple_recurr_base
+	{
+
+	};
+
 	template<std::size_t index, typename L, typename... types>
 	class _tuple_recurr_base :
 		public _tuple_impl < index, typename std::remove_reference<L>::type>,
 		public _tuple_recurr_base<index + 1, types...>
+	{
+
+	};
+
+
+	template<typename L, typename... types>
+	class tuple : public _tuple_recurr_base<0, L, types...>
 	{
 
 	};
